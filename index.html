@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>1bpp</title>
+		<style>
+			* {
+				font-family: Helvetica, sans-serif;
+			}
+		</style>
+		<link rel='icon' href='icon.png' sizes="16x16" type='image/png'>
+	</head>
+	<body>
+		<h1 title="NO">God Dammit, 1BPP</h1>
+		<p>One bit per pixel?</p>
+		<h3>Games</h3>
+		<ul id="games"></ul>
+		<script src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+		<script>
+			var list = document.getElementById("games");
+			var fb = new Firebase("https://1bpp.firebaseio.com/");
+			//fb.child("games").tra
+			fb.child("games").on("child_added", function(snapshot){
+				var li = document.createElement("li");
+				list.appendChild(li);
+				var a = document.createElement("a");
+				li.appendChild(a);
+				a.href = url(snapshot.name());
+				console.log("New game!");
+			});
+			var new_game = document.createElement("button");
+			document.body.appendChild(new_game);
+			new_game.innerHTML = "New Game";
+			new_game.onclick = function(){
+				var game = fb.child("games").push();
+				console.log(url(game.name()));
+			};
+			function url(game_id){
+				return "game?id=" + game_id;
+			}
+		</script>
+	</body>
+</html>
