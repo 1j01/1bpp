@@ -1,144 +1,9 @@
 <!doctype html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>1BPP Gallery</title>
-		<style>
-			img { /* Rotate and scale and make grayscale! */
-				-webkit-transform: scale(0.5) rotate(-25deg);
-				-webkit-transition: all .2s ease;
-				-webkit-filter: saturate(0%); 
-				cursor: url(magnify.png), url(magnify.cur), -moz-zoom-in, pointer; 
-			}
-			img.even { /* Rotate every other image the other way. */
-				-webkit-transform: scale(0.5) rotate(25deg);
-			}
-			img:hover { /* On hover it is actually normal. */
-				-webkit-transform: none;
-				-webkit-filter: saturate(100%);
-			}
-			body { /* Gradients! */
-				background: -webkit-gradient(radial, center 90%, 0, center 70%, 700.5, from(#FAF), to(white));
-				background: -webkit-gradient(radial, center 90%, 0, center 70%, 700.5, from(#444), to(black));
-				font-family: Pixel, Helvetica, Arial, Georgia, Sans-Serif, Serif;
-			}
-			#zoom-container { /* The shadowy overlay. */
-				position: fixed; 
-				left: 0; top: 0; right: 0; bottom: 0;
-				
-				-webkit-transition: all .4s ease;
-				
-				background: rgba(0,0,0,0.5);
-				background: -webkit-gradient(radial, center 90%, 0, center 90%, 700.5, from(rgba(60,60,60,0.5)), to(rgba(0,0,0,1)));
-			}
-			#zoom { /* This is a canvas. */
-				position: fixed;
-				-webkit-transition: all .4s ease;
-				
-				box-shadow: 0 0 20px 0 black;
-			}
-			/*.downloads {
-				width: 100%;
-				margin: 0;
-				padding: 10px;
-				-webkit-box-sizing: border-box;
-				-moz-box-sizing: border-box; 
-				box-sizing: border-box; 
-				
-				background: #EEE;
-				background: -webkit-gradient(radial, 10% 90%, 0, center 90%, 50%, 
-					from(white), 
-					color-stop(0.7,rgb(200,200,200)), 
-					to(rgba(100,100,100,0)));
-				box-shadow: 0 0 10px 0 black inset,0 0 20px 0 black,5px 10px 10px 0 black inset;
-			}*/
-			
-			.downloads {
-				background: transparent;
-				color: white;
-			}
-			.downloads .center {
-				margin: auto;
-				margin-bottom: 10px;
-			}
-			.button {
-				display: inline;
-				padding: 10px;
-				margin-right: 10px;
-				
-				border-radius: 2px;
-				border: 1px black;
-				
-				box-shadow: 0 0 5px 0 rgba(0,0,0,0.7), 1px 2px 4px 0 rgba(255,255,255,0.7) inset;
-				-webkit-transition: all .2s ease-in-out;
-				transition: all .2s ease-in-out;
-				cursor: pointer;
-				text-shadow: 2px rgba(255,255,255,0.5);
-				color: black;
-				user-select: none;
-				-webkit-user-select: none;
-			}
-			.button:hover {
-				box-shadow: 0 0 5px 0 rgba(0,0,0,0.7), 0 2px 5px 0 rgba(255,255,255,0.7) inset,
-					0 0 0 50px rgba(255,255,255,0.1) inset;
-			}
-			.button:active {
-				box-shadow: 0 0 1px 0 rgba(0,0,0,0.7), 1px 2px 4px 0 rgba(0,0,0,0.5) inset,
-					0 0 0 50px rgba(255,255,255,0.2) inset;
-			}
-			.button:before { position: relative;  top: 12px; left: -5px; }
-			.button::selection { background: rgba(0,255,0,0.1); }
-			
-			
-			.linux {
-				background: #222;
-				color: white;
-				text-shadow: 2px black;
-			}
-			.windows {
-				background: #FF7;
-			}
-			.mac {
-				background: #8AF;
-			}
-			.linux:before {
-				content: url(http://cdn1.iconfinder.com/data/icons/fatcow/32x32/download_for_linux.png);
-			}
-			.windows:before {
-				content: url(http://cdn1.iconfinder.com/data/icons/fatcow/32x32/download_for_windows.png);
-			}
-			.mac:before {
-				content: url(http://cdn1.iconfinder.com/data/icons/fatcow/32x32/download_for_mac.png);
-			}
-			
-			
-			::-webkit-scrollbar{
-				width: 5px;
-				height: 5px;
-				
-				background: #333;
-			}
-			::-webkit-scrollbar-thumb{
-				background: #555;
-				border-radius: 3px;
-				transition: all .5s ease-in-out;
-				box-shadow: 1px 1px 2px 0 rgba(255,255,255,0.2) inset;
-			}
-			::-webkit-scrollbar-thumb:hover{
-				background: #666;
-			}
-			/*.full{width:100%;height:100%}*/
-			form{padding:0;margin:30px;float:left}
-			.full{width:100px;height:100%;
-				position:relative;margin:0;padding:0;left:0;right:0;top:0;background:lime;border:0}
-			inline{display:inline}
-			
-			@font-face {
-			  font-family: 'Pixel';
-			  font-style: normal;
-			  font-weight: 400;
-			  src: local('Pixel'), local('Pixel'), url('fonts/pixel.woff') format('woff');
-			}
-		</style>
+		<link rel="stylesheet" href="gallery.css">
 	</head>
 	<body>
 		<img src="images/1bpp-00.png" class="even"/>
@@ -159,99 +24,27 @@
 		<img src="images/1bpp-15.png" class="odd"/>
 		<img src="images/cat.png" class="even"/>
 		<img src="images/thehillshaveeyes.gif" class="odd"/>
-		
-		<!--
-		<img src="http://fc07.deviantart.net/fs70/f/2011/102/2/6/1_bpp_gif_movie___ip_man_by_duracelleur-d3dthy3.gif" class="odd"/>
-		-->
-		<br/>
 		<div class="downloads">
-			<div class="center">
-				<p>Download lastest dev version:</p>
-				<form action="downloads/1bpp.linux" method="get" target="_blank" class="inline"> 
-					<div class="cool linux download button" onclick="event.target.parentElement.submit();">For Linux</div>
+			<p>Download lastest dev version:</p>
+			<form action="downloads/1bpp.linux" method="get" target="_blank">
+				<div class="linux download" onclick="event.target.parentElement.submit();">For Linux</div>
+			</form>
+			<form action="downloads/1bpp.exe" method="get" target="_blank">
+				<div class="windows download" onclick="event.target.parentElement.submit();">For Windows</div>
+			</form>
+			<form action="downloads/1bpp.app" method="get" target="_blank">
+				<div class="mac download" onclick="event.target.parentElement.submit();">For OS X</div>
+			</form>
+			<noscript>
+				No javascript:
+				<form action="downloads/1bpp.linux" method="get" target="_blank" class="linux download ">
+					<input type="submit" value="Download for Linux" class="button"></input>
 				</form>
-				<form action="downloads/1bpp.exe" method="get" target="_blank" class="inline"> 
-					<div class="cool windows download button" onclick="event.target.parentElement.submit();">For Windows</div>
-				</form>
-				<form action="downloads/1bpp.whatevermacuses" method="get" target="_blank" class="inline"> 
-					<div class="cool mac download button" onclick="event.target.parentElement.submit();">For OS X</div>
-				</form>
-				<noscript>
-					No javascript:
-					<form action="downloads/1bpp.linux" method="get" target="_blank" class="cool linux download "> 
-						<input type="submit" value="Download for Linux" class="button"></input>
-					</form>
-				</noscript>
-			</div>
+			</noscript>
 		</div>
-		<div style="opacity:0;" id="zoom-container">
+		<div style="opacity:0;pointer-events:none;" id="zoom-container">
 			<canvas id="zoom" width="1" height="1"></canvas>
 		</div>
-		<script type="text/javascript">
-			var canvascontainer=document.getElementById("zoom-container");
-			var canvas=document.getElementById("zoom");
-			var imgs=document.getElementsByTagName("img");
-			
-			window.onresize = setCanvas;
-			canvascontainer.onclick=hidecanvas;
-			canvas.onclick=hidecanvas;
-			hidecanvas();
-			
-			for(img in imgs){
-				imgs[img].onclick=function(){
-					zoom(this,2);
-					showcanvas();
-				}
-			}
-			
-			function hidecanvas(){
-				var div=document.getElementById("zoom-container");
-				var cv=document.getElementById("zoom");
-				div.style.opacity=0;
-				cv.style.top="100px";
-				div.style.pointerEvents="none";
-			}
-			function showcanvas(){
-				var div=document.getElementById("zoom-container");
-				var cv=document.getElementById("zoom");
-				div.style.opacity=1;
-				cv.style.top="50px";
-				div.style.pointerEvents="all";
-				setCanvas();
-			}
-			function setCanvas(){
-			   var cv = document.getElementById('zoom');
-			   var pw = cv.parentNode.clientWidth;
-			   var ph = cv.parentNode.clientHeight;
-			   cv.style.top = (ph-cv.height)/2 + "px";
-			   cv.style.left = (pw-cv.width)/2 + "px";
-			}
-			
-			function zoom(img,scale){
-				// Create an offscreen canvas, draw an image to it, and fetch the pixels
-				var canvas=document.getElementById("zoom");
-				var offcv = canvas;
-				
-				offcv.width=img.width;
-				offcv.height=img.height;
-				var offtx = offcv.getContext('2d');
-				offtx.drawImage(img,0,0);
-				var imgData = offtx.getImageData(0,0,img.width,img.height).data;
-				delete offtx;delete offcv;
-				// Draw the zoomed-up pixels to a different canvas context
-				canvas.width=img.width*scale;
-				canvas.height=img.height*scale;
-				var ctx=canvas.getContext("2d");
-				
-				for (var x=0;x<img.width;++x){
-					for (var y=0;y<img.height;++y){
-						// Find the starting index in the one-dimensional image data
-						//var i = (y*img.width + x)*4;ctx.fillStyle = "rgba("+imgData[i]+","+imgData[i+1]+","+imgData[i+2]+","+(imgData[i+3]/255)+")";
-						ctx.fillStyle = (imgData[(y*img.width + x)*4+1]>128)?"white":"black";
-						ctx.fillRect(x*scale,y*scale,scale,scale);
-					}
-				}
-			}
-		</script>
+		<script type="text/javascript" src="gallery.js"></script>
 	</body>
 </html>

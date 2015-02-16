@@ -1,0 +1,142 @@
+
+* {
+	vertical-align: bottom;
+	font-family: Pixel, Helvetica, Arial, Georgia, sans-serif;
+}
+
+img { /* Rotate and scale and make grayscale! */
+	-webkit-transform: scale(0.5) rotate(-25deg);
+	-webkit-transition: all .2s ease;
+	-webkit-filter: saturate(0%);
+	cursor: url(magnify.png), url(magnify.cur), -moz-zoom-in, pointer; 
+}
+img.even { /* Rotate every other image the other way. */
+	-webkit-transform: scale(0.5) rotate(25deg);
+}
+img:hover { /* On hover it is actually normal. */
+	-webkit-transform: none;
+	-webkit-filter: saturate(100%);
+}
+body { /* Gradients! */
+	background: -webkit-gradient(radial, center 90%, 0, center 70%, 700.5, from(#FAF), to(white));
+	background: -webkit-gradient(radial, center 90%, 0, center 70%, 700.5, from(#444), to(black));
+	box-shadow: 0px 0px 5px 5px black inset;
+}
+#zoom-container { /* The shadowy overlay. */
+	position: fixed; 
+	left: 0; top: 0; right: 0; bottom: 0;
+	
+	-webkit-transition: all .4s ease;
+	
+	background: rgba(0,0,0,0.5);
+	background: -webkit-gradient(radial, center 90%, 0, center 90%, 700.5, from(rgba(60,60,60,0.5)), to(rgba(0,0,0,1)));
+}
+#zoom { /* This is a canvas. */
+	position: fixed;
+	-webkit-transition: all .4s ease;
+	
+	box-shadow: 0 0 20px 0 black;
+}
+/*.downloads {
+	width: 100%;
+	margin: 0;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box; 
+	
+	background: #EEE;
+	background: -webkit-gradient(radial, 10% 90%, 0, center 90%, 50%, 
+		from(white), 
+		color-stop(0.7,rgb(200,200,200)), 
+		to(rgba(100,100,100,0)));
+	box-shadow: 0 0 10px 0 black inset,0 0 20px 0 black,5px 10px 10px 0 black inset;
+}*/
+
+.downloads {
+	background: transparent;
+	color: white;
+	padding: 30px;
+	padding-bottom: 60px;
+}
+form {
+	padding: 0;
+	margin: 0;
+	float: left;
+	display: inline-block;
+}
+.download {
+	display: inline;
+	padding: 10px;
+	margin-right: 10px;
+	
+	border-radius: 2px;
+	border: 1px black;
+	
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.7), 1px 2px 4px 0 rgba(255,255,255,0.7) inset;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	cursor: pointer;
+	text-shadow: 2px rgba(255,255,255,0.5);
+	color: black;
+	user-select: none;
+	-webkit-user-select: none;
+}
+.download:hover {
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.7), 0 2px 5px 0 rgba(255,255,255,0.7) inset,
+		0 0 0 50px rgba(255,255,255,0.1) inset;
+}
+.download:active {
+	box-shadow: 0 0 1px 0 rgba(0,0,0,0.7), 1px 2px 4px 0 rgba(0,0,0,0.5) inset,
+		0 0 0 50px rgba(255,255,255,0.2) inset;
+}
+.download:before { position: relative;  top: 12px; left: -5px; }
+.download::selection { background: rgba(0,255,0,0.1); }
+
+
+.linux {
+	background: #222;
+	color: white;
+	text-shadow: 2px black;
+}
+.windows {
+	background: #FF7;
+}
+.mac {
+	background: #8AF;
+}
+.linux:before {
+	content: url(http://cdn1.iconfinder.com/data/icons/fatcow/32x32/download_for_linux.png);
+}
+.windows:before {
+	content: url(http://cdn1.iconfinder.com/data/icons/fatcow/32x32/download_for_windows.png);
+}
+.mac:before {
+	content: url(http://cdn1.iconfinder.com/data/icons/fatcow/32x32/download_for_mac.png);
+}
+
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	
+	background: #333;
+}
+::-webkit-scrollbar-thumb {
+	background: #555;
+	border-radius: 3px;
+	transition: all .5s ease-in-out;
+	box-shadow: 1px 1px 2px 0 rgba(255,255,255,0.2) inset;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #666;
+}
+
+@font-face {
+	font-family: 'Pixel';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Pixel'), local('Pixel'), url('fonts/pixel.woff') format('woff');
+}
+
+
