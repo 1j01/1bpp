@@ -25,22 +25,16 @@
 		<img src="images/cat.png" class="even"/>
 		<img src="images/thehillshaveeyes.gif" class="odd"/>
 		<div class="downloads">
-			<p>Download lastest dev version:</p>
-			<form action="downloads/1bpp.linux" method="get" target="_blank">
-				<div class="linux download" onclick="event.target.parentElement.submit();">For Linux</div>
+			<h2>Download lastest dev version:</h2>
+			<form action="downloads/1bpp.linux" method="get" target="_blank" class="linux download">For Linux
+				<input type="submit" class="button"></input>
 			</form>
-			<form action="downloads/1bpp.exe" method="get" target="_blank">
-				<div class="windows download" onclick="event.target.parentElement.submit();">For Windows</div>
+			<form action="downloads/1bpp.exe" method="get" target="_blank" class="windows download">For Windows
+				<input type="submit" class="button"></input>
 			</form>
-			<form action="downloads/1bpp.app" method="get" target="_blank">
-				<div class="mac download" onclick="event.target.parentElement.submit();">For OS X</div>
+			<form action="downloads/1bpp.app" method="get" target="_blank" class="mac download">For OSX
+				<input type="submit" class="button"></input>
 			</form>
-			<noscript>
-				No javascript:
-				<form action="downloads/1bpp.linux" method="get" target="_blank" class="linux download ">
-					<input type="submit" value="Download for Linux" class="button"></input>
-				</form>
-			</noscript>
 		</div>
 		<div style="opacity:0;pointer-events:none;" id="zoom-container">
 			<canvas id="zoom" width="1" height="1"></canvas>
