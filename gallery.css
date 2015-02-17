@@ -3,8 +3,6 @@ img {
 	-webkit-transform: scale(0.5) rotate(-25deg);
 	-webkit-transition: all .2s ease;
 	-webkit-filter: saturate(0%);
-	cursor: pointer;
-	cursor: -moz-zoom-in, pointer;
 }
 img.even {
 	-webkit-transform: scale(0.5) rotate(25deg);
