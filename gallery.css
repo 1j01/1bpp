@@ -22,7 +22,7 @@ body {
 }
 
 /* The shadowy overlay. */
-#zoom-container {
+#overlay {
 	position: absolute;
 	position: fixed;
 	left: 0; top: 0; right: 0; bottom: 0;
@@ -32,7 +32,7 @@ body {
 	background: rgba(0,0,0,0.5);
 	background: -webkit-gradient(radial, center 90%, 0, center 90%, 700.5, from(rgba(60,60,60,0.5)), to(rgba(0,0,0,1)));
 }
-canvas#zoom {
+#overlay canvas {
 	position: absolute;
 	position: fixed;
 	-webkit-transition: all .4s ease;
