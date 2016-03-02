@@ -1,5 +1,6 @@
 
 #include <QtGui>
+#include "qapplication.h"
 #include "glwidget.h"
 #include "world.h"
 
@@ -50,7 +51,7 @@ void GLWidget::keyPressEvent( QKeyEvent *k )
 			break;
 		case Qt::Key_Escape:
 			// quit
-			QApplication::exit(1337);
+            QApplication::exit(1337);
 			break;
 		case Qt::Key_A:
 		case Qt::Key_Left:

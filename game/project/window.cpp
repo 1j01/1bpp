@@ -1,6 +1,7 @@
 
 #include <QtGui>
 #include "glwidget.h"
+#include "qgridlayout.h"
 #include "window.h"
 
 //! [0]

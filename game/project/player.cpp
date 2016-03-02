@@ -1,4 +1,5 @@
 #include <QtGui>
+#include "qapplication.h"
 #include "player.h"
 #include "world.h"
 
