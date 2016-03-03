@@ -1,11 +1,8 @@
 
 img {
-	-webkit-transform: scale(0.5) rotate(-25deg);
-	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
 	-webkit-filter: saturate(0%);
-}
-img.even {
-	-webkit-transform: scale(0.5) rotate(25deg);
+	margin: 15px;
 }
 img:hover {
 	-webkit-transform: none;
@@ -17,6 +14,8 @@ body {
 	background: -webkit-gradient(radial, center 90%, 0, center 70%, 700.5, from(#FAF), to(white));
 	background: -webkit-gradient(radial, center 90%, 0, center 70%, 700.5, from(#444), to(black));
 	box-shadow: 0px 0px 5px 5px black inset;
+	text-align: center;
+	margin: 0;
 }
 
 /* The shadowy overlay. */
